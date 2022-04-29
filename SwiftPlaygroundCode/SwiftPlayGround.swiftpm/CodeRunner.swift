@@ -9,7 +9,7 @@ import Foundation
 class CodeRunner {
     func invoke() -> String {
         let test = MultiThreadingTest()
-//        test.invokeThreading1Test()
+        test.invokeThreading1Test()
         test.invokeThreading2Test()
         return "Test"
     }
@@ -29,17 +29,17 @@ class MultiThreadingTest {
     }
     
     func invokeThreading2Test() {
-//        // Dispatch Work Item
-//        DispatchWorkItemTest().testWorkflow()
-//
-//        // Dispatch Group
-//        DispatchGroupTest().testWorkflow()
-//
-//        // Dispatch Barrier
-//        DispatchBarrierTest().testWorkflow()
-//        
-//        // Dispatch Semaphore
-//        DispatchSemaphoreTest().testWorkflow()
+        // Dispatch Work Item
+        DispatchWorkItemTest().testWorkflow()
+
+        // Dispatch Group
+        DispatchGroupTest().testWorkflow()
+
+        // Dispatch Barrier
+        DispatchBarrierTest().testWorkflow()
+        
+        // Dispatch Semaphore
+        DispatchSemaphoreTest().testWorkflow()
         
         DispatchSourcesTest().testWorkflow()
         
