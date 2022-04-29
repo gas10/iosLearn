@@ -44,9 +44,8 @@ class ManualThreadTest {
     }
     
     func testWorkflow() {
-        let test = ManualThreadTest()
-        test.threadBasics()
-        test.createThreads()
+        threadBasics()
+        createThreads()
     }
 }
 
@@ -81,14 +80,14 @@ class ManualThreadTest {
  
  */
 class GCDTest {
-    private func invokeWorkflow() {
+    func testWorkflow() {
         // 1. Sync and ASync task Test for main Queue
         mainQueueTest()
         
         // 2. running global queue
         globalQueueTest()
         
-        // 3. Creating private queue
+        // 3. Create private serial and concurrent queue
         /**
          // Creating a dispatch queue object
         let dispatchQueue = DispatchQueue(label: "Amar's Dispatch Queue",
@@ -97,7 +96,6 @@ class GCDTest {
                                           autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency,
                                           target: DispatchQueue?)
          */
-        // create private serial and concurrent queue
         privateQueueTest()
     }
     
@@ -189,11 +187,6 @@ class GCDTest {
         }
         print("Finished Concurrent Queue Sync Operation")
     }
-    
-    func testWorkflow() {
-        let test = GCDTest()
-        test.invokeWorkflow()
-    }
 }
 
 /**
@@ -208,7 +201,7 @@ class QualityOfService {
                                        autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency,
                                        target: DispatchQueue?)
      */
-    private func qosWorkflow() {
+    func testWorkflow() {
         // MARK: -  qos (quality of service)
         // User Interactive - Run only on main thread. Super fast, low latency task (main Thread)
         let userInteractiveQueue = DispatchQueue(label: "UserInteractive", qos: .userInteractive)
@@ -265,10 +258,5 @@ class QualityOfService {
          .global()      - primarily used for work that is not UI related.three priorities Low, Default & High. This queue has the second highest priority.
          nil               - nil is the lowest priority and will be lower than any global queue. It has no priority, it just needs to get done.
          */
-    }
-    
-    func testWorkflow() {
-        let test = QualityOfService()
-        test.qosWorkflow()
     }
 }

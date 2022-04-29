@@ -11,7 +11,8 @@ class CodeRunner {
         let test = MultiThreadingTest()
         test.invokeThreading1Test()
         test.invokeThreading2Test()
-        return "Test"
+        test.invokeThreading3Test()
+        return "Success"
     }
 }
 
@@ -19,13 +20,18 @@ class MultiThreadingTest {
     static var output = ""
     static let canPrint = true
     
-    
     func invokeThreading1Test() {
+        // Thread basics and creation
         ManualThreadTest().testWorkflow()
         
+        // Main, Global, Private
         GCDTest().testWorkflow()
         
+        // qos properties
         QualityOfService().testWorkflow()
+        
+        // Print or Write output
+        writeLogToFile()
     }
     
     func invokeThreading2Test() {
@@ -41,10 +47,22 @@ class MultiThreadingTest {
         // Dispatch Semaphore
         DispatchSemaphoreTest().testWorkflow()
         
+        // Dispatch Source
         DispatchSourcesTest().testWorkflow()
         
         // Print or Write output
         writeLogToFile()
+    }
+    
+    func invokeThreading3Test() {
+        // Block Operation
+        BlockOperationTest().testWorkflow()
+        
+        // Custom Operation
+        CustomOperationTest().testWorkflow()
+        
+        // Opeartion Queue
+        OperationQueueTest().testWorkflow()
     }
     
     func writeLogToFile() {

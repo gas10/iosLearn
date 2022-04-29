@@ -133,6 +133,7 @@ class DispatchGroupTest {
     func testWorkflow() {
         testGroup()
         testGroupWithWorkItem()
+        testDelayedExecution()
     }
 }
 
